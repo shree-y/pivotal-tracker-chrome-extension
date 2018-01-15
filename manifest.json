@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+
+    "name": "Pivotal Total Points Tracker",
+    "description": "This extension shows the total points of an epic in the pivotal tracker",
+    "version": "1.0",
+    
+	"page_action": {
+		
+		"default_icon": "p_icon.png",
+		"default_popup": "popup.html",
+		"default_title": "Pivotal total points"
+	},
+    
+	"background": {
+	     	"scripts": ["eventPage.js"],
+	 	"persistent":false
+	},
+
+    	"content_scripts": [
+		{
+		    "matches": ["https://www.pivotaltracker.com/n/projects/*"],
+		    "js":["pivot.js","jquery-2.2.3.min.js"]
+		}
+     	],
+    	
+	"permissions": [
+		"tabs",
+		"https://www.pivotaltracker.com/*"
+    	]
+}
